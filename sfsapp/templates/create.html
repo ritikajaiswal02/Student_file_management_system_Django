@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+<head>
+<title>Student file/Marksheet System</title>
+<link rel="stylesheet" href="{% static 'css/mystyle.css' %}"></link>
+</head>
+<body>
+	<div class="nav">
+		<a href="{% url 'home' %}">HOME</a>
+		<a href="{% url 'create' %}">CREATE</a>
+		<a href="{% url "locate" %}">LOCATE</a>
+	</div>
+	<br/>
+	<h1>Create Page</h1>
+	<br/>
+
+	<form method ="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<table border="5">
+		{{ fm.as_table}}
+		</table>
+		<br/>
+		<input type="submit" value="Create Student"/>
+	</form>
+	<h2>{{msg}}</h2>
+</body>
+</html>
+

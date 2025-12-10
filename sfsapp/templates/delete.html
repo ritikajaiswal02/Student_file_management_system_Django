@@ -1,0 +1,24 @@
+{% load static %}
+<html>
+<head>
+<title>Student file/Marksheet System</title>
+<link rel="stylesheet" href="{% static 'css/mystyle.css' %}"></link>
+</head>
+<body>
+	<div class="nav">
+		<a href="{% url 'home' %}">HOME</a>
+		<a href="{% url 'create' %}">CREATE</a>
+		<a href="{% url "locate" %}">LOCATE</a>
+	</div>
+	<br/>
+	<h1>Delete Page</h1>
+	<br/>
+
+	<h2>Do you want to delete rno --> {{ st.rno }}</h2>
+	<form method = "POST">
+		{% csrf_token %}
+		<input type="submit" value="Delete Student"/>
+	</form>
+</body>
+</html>
+

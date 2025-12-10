@@ -1,0 +1,36 @@
+{% load static %}
+<html>
+<head>
+<title>Student file/Marksheet System</title>
+<link rel="stylesheet" href="{% static 'css/mystyle.css' %}"></link>
+</head>
+<body>
+	<div class="nav">
+		<a href="{% url 'home' %}">HOME</a>
+		<a href="{% url 'create' %}">CREATE</a>
+		<a href="{% url "locate" %}">LOCATE</a>
+	</div>
+	<br/>
+	<h1>Home Page</h1>
+	<br/>
+
+	<table border="5">
+		<tr>
+			<th>Rno</th>
+			<th>Name</th>
+			<th>Marksheet</th>
+			<th>Delete</th>
+		</tr>
+
+		{% for d in data %}
+		<tr>
+			<td>{{d.rno}}</td>
+			<td>{{d.name}}</td>
+			<td><a href="{{d.ms.url}}">View</a></td>
+			<td><a href="{% url 'delete' i=d.rno %}">Delete</a></td>
+		</tr>
+		{% endfor %}
+	<table>
+</body>
+</html>
+
